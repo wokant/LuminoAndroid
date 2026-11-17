@@ -13,3 +13,30 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Build artifacts
+**/build/
+.kotlin/
+*.apk
+*.aab
+
+# Local configuration
+.env
+.env.*
+secrets.properties
+keystore.properties
+
+# Signing keys and certificates
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+
+# Android Studio
+.idea/deploymentTargetSelector.xml
+.idea/deviceManager.xml
+.idea/shelf/
+
+# Local shell configuration
+.zshrc

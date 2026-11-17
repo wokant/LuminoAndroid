@@ -1,4 +1,4 @@
-package com.example.luminostudy
+package com.wokant.luminostudy
 
 import org.junit.Test
 
