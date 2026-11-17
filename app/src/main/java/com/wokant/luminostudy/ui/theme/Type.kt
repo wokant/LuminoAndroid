@@ -1,4 +1,4 @@
-package com.example.luminostudy.ui.theme
+package com.wokant.luminostudy.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

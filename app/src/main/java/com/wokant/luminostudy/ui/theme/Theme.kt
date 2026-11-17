@@ -1,4 +1,4 @@
-package com.example.luminostudy.ui.theme
+package com.wokant.luminostudy.ui.theme
 
 import android.app.Activity
 import android.os.Build
