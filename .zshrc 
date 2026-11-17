@@ -1,0 +1,139 @@
+export PATH=$HOME/flutter/bin:$PATH
+export PATH="/opt/homebrew/opt/libressl/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# Suma
+rallysetup() {
+  setuprallyserver && setuprallyios && knabopenios
+}
+knabsetup() {
+  rallysetup
+}
+knabcrashed() {
+  kill8080 && knabsetup
+}
+bashprofile() {
+  vsbash
+}
+vsbash() {
+  open -a "Visual Studio Code" ~/.bash_profile
+}
+knabserversetup() {
+  setuprallyserver
+}
+knabsetupServer() {
+  setuprallyserver
+}
+setuprallyserver() {
+ cd ~/dev/suma-swift/SumaServer && open Package.swift && redis-server
+}
+rallyserversetup() {
+  setuprallyserver
+}
+rallysetupserver() {
+  setuprallyserver
+}
+rallysetupios() {
+  setuprallyios
+}
+knabopenios() {
+  cd ~/dev/suma-swift/SumaiOS && open Rally.xcworkspace
+}
+knabsetupios() {
+  cd ~/dev/suma-swift/SumaiOS && pod install && open -a "Xcode" Rally.xcworkspace
+}
+knabsetupdashboard() {
+  cd ~/dev/suma-swift/SumaDashboard && pod install && open RallyDashboard.xcworkspace
+}
+knabdashboardsetup() {
+  knabsetupdashboard
+}
+setuprallyios() {
+  cd ~/dev/suma-swift/SumaiOS && pod install
+}
+cl() {
+  clear
+}
+check8080() {
+  lsof -i @localhost:8080
+}
+kill8080() {
+  check8080
+}
+rallyprepformastermerge() {
+  cd ~/dev/SumaMaster/SumaServer && swift test --generate-linuxmain
+}
+knabprepformastermerge() {
+  cd ~/dev/SumaMaster/SumaServer && swift test --generate-linuxmain
+}
+knabprepserverdeployment() {
+  cd ~/dev/SumaMaster/SumaServer && swift package update
+}
+uploadAppDysms() {
+  ~/dev/Rally/RallyiOS/Pods/FirebaseCrashlytics/upload-symbols -gsp ~/dev/Rally/RallyiOS/GoogleService-Info.plist -p ios ~/Desktop/appDsyms
+}
+openFoldersToDelete() {
+  open ~/Library/Developer/CoreSimulator/Devices && open ~/Library/Developer/Xcode/iOS\ DeviceSupport && open ~/Library/Developer/CoreSimulator/Caches/dyld && open ~/Library/Developer/Xcode/DerivedData && open ~/Library/Developer/Xcode/Archives && open ~/Library/Developer/Xcode/iOS\ Device Logs && open ~/Library/Caches
+}
+# Source control stuff
+wip() {
+  git commit -a -m WIP
+}
+newcommit () {
+  wip
+}
+squish() {
+  git status && git commit -a --amend -C HEAD
+}
+show() {
+  git show
+}
+gs() {
+  git status
+}
+ga() {
+  git add ~/dev/Rally
+}
+# Checkout git checkout <commit_hash>
+glog() {
+  git log --pretty=format:"%h $ad- %s [%an]"
+}
+ad() {
+  arc diff HEAD^
+}
+interactiveRebase() {
+  git rebase -i origin/master
+}
+rallypull() {
+    git fetch origin master:master  && git fetch origin stable:stable
+}
+arcupdate() {
+    arc diff -m "update after rebase"
+}
+alias laptop='bash <(curl -s https://raw.githubusercontent.com/monfresh/laptop/master/laptop)'
+export PATH="$HOME/.bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+# Setting PATH for Python 3.10
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
+export PATH
+export PATH="/usr/local/opt/php@7.2/bin:$PATH"
+export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
+export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
+export PATH="$PATH:/Users/rickyvelasquez/arcanist/bin/"
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH=`gem environment gemdir`/bin:$PATH
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/leomendez/.docker/completions $fpath)
+autoload -Uz compinit
+(( ${+_comps[docker]} )) || compinit
+# End of Docker CLI completions
+
+# Android Development
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+export PATH="$JAVA_HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
